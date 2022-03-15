@@ -1,0 +1,7 @@
+query FetchProducts($limit:Int,$offset:Int){
+  Products(limit:$limit,offset:$offset){
+    id
+    product
+    product_img
+  }
+}
