@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: camel_case_types, non_constant_identifier_names, constant_identifier_names
-
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -269,7 +267,9 @@ abstract class GProducts_bool_exp
   GProducts_bool_exp? get G_not;
   @BuiltValueField(wireName: '_or')
   BuiltList<GProducts_bool_exp>? get G_or;
+  GString_comparison_exp? get description;
   GInt_comparison_exp? get id;
+  GInt_comparison_exp? get price;
   GString_comparison_exp? get product;
   GString_comparison_exp? get product_img;
   static Serializer<GProducts_bool_exp> get serializer =>
@@ -303,6 +303,7 @@ abstract class GProducts_inc_input
       [Function(GProducts_inc_inputBuilder b) updates]) = _$GProducts_inc_input;
 
   int? get id;
+  int? get price;
   static Serializer<GProducts_inc_input> get serializer =>
       _$gProductsIncInputSerializer;
   Map<String, dynamic> toJson() =>
@@ -320,7 +321,9 @@ abstract class GProducts_insert_input
           [Function(GProducts_insert_inputBuilder b) updates]) =
       _$GProducts_insert_input;
 
+  String? get description;
   int? get id;
+  int? get price;
   String? get product;
   String? get product_img;
   static Serializer<GProducts_insert_input> get serializer =>
@@ -359,7 +362,9 @@ abstract class GProducts_order_by
   factory GProducts_order_by([Function(GProducts_order_byBuilder b) updates]) =
       _$GProducts_order_by;
 
+  Gorder_by? get description;
   Gorder_by? get id;
+  Gorder_by? get price;
   Gorder_by? get product;
   Gorder_by? get product_img;
   static Serializer<GProducts_order_by> get serializer =>
@@ -393,7 +398,12 @@ abstract class GProducts_pk_columns_input
 class GProducts_select_column extends EnumClass {
   const GProducts_select_column._(String name) : super(name);
 
+  static const GProducts_select_column description =
+      _$gProductsSelectColumndescription;
+
   static const GProducts_select_column id = _$gProductsSelectColumnid;
+
+  static const GProducts_select_column price = _$gProductsSelectColumnprice;
 
   static const GProducts_select_column product = _$gProductsSelectColumnproduct;
 
@@ -415,7 +425,9 @@ abstract class GProducts_set_input
   factory GProducts_set_input(
       [Function(GProducts_set_inputBuilder b) updates]) = _$GProducts_set_input;
 
+  String? get description;
   int? get id;
+  int? get price;
   String? get product;
   String? get product_img;
   static Serializer<GProducts_set_input> get serializer =>
@@ -430,7 +442,12 @@ abstract class GProducts_set_input
 class GProducts_update_column extends EnumClass {
   const GProducts_update_column._(String name) : super(name);
 
+  static const GProducts_update_column description =
+      _$gProductsUpdateColumndescription;
+
   static const GProducts_update_column id = _$gProductsUpdateColumnid;
+
+  static const GProducts_update_column price = _$gProductsUpdateColumnprice;
 
   static const GProducts_update_column product = _$gProductsUpdateColumnproduct;
 

@@ -371,7 +371,9 @@ enum order_by {
 columns and relationships of "Products"
 """
 type Products {
+  description: String
   id: Int!
+  price: Int
   product: String!
   product_img: String!
 }
@@ -404,6 +406,7 @@ type Products_aggregate_fields {
 """aggregate avg on columns"""
 type Products_avg_fields {
   id: Float
+  price: Float
 }
 
 """
@@ -413,7 +416,9 @@ input Products_bool_exp {
   _and: [Products_bool_exp!]
   _not: Products_bool_exp
   _or: [Products_bool_exp!]
+  description: String_comparison_exp
   id: Int_comparison_exp
+  price: Int_comparison_exp
   product: String_comparison_exp
   product_img: String_comparison_exp
 }
@@ -431,27 +436,34 @@ input type for incrementing numeric columns in table "Products"
 """
 input Products_inc_input {
   id: Int
+  price: Int
 }
 
 """
 input type for inserting data into table "Products"
 """
 input Products_insert_input {
+  description: String
   id: Int
+  price: Int
   product: String
   product_img: String
 }
 
 """aggregate max on columns"""
 type Products_max_fields {
+  description: String
   id: Int
+  price: Int
   product: String
   product_img: String
 }
 
 """aggregate min on columns"""
 type Products_min_fields {
+  description: String
   id: Int
+  price: Int
   product: String
   product_img: String
 }
@@ -478,7 +490,9 @@ input Products_on_conflict {
 
 """Ordering options when selecting data from "Products"."""
 input Products_order_by {
+  description: order_by
   id: order_by
+  price: order_by
   product: order_by
   product_img: order_by
 }
@@ -493,7 +507,13 @@ select columns of table "Products"
 """
 enum Products_select_column {
   """column name"""
+  description
+
+  """column name"""
   id
+
+  """column name"""
+  price
 
   """column name"""
   product
@@ -506,7 +526,9 @@ enum Products_select_column {
 input type for updating data in table "Products"
 """
 input Products_set_input {
+  description: String
   id: Int
+  price: Int
   product: String
   product_img: String
 }
@@ -514,21 +536,25 @@ input Products_set_input {
 """aggregate stddev on columns"""
 type Products_stddev_fields {
   id: Float
+  price: Float
 }
 
 """aggregate stddev_pop on columns"""
 type Products_stddev_pop_fields {
   id: Float
+  price: Float
 }
 
 """aggregate stddev_samp on columns"""
 type Products_stddev_samp_fields {
   id: Float
+  price: Float
 }
 
 """aggregate sum on columns"""
 type Products_sum_fields {
   id: Int
+  price: Int
 }
 
 """
@@ -536,7 +562,13 @@ update columns of table "Products"
 """
 enum Products_update_column {
   """column name"""
+  description
+
+  """column name"""
   id
+
+  """column name"""
+  price
 
   """column name"""
   product
@@ -548,16 +580,19 @@ enum Products_update_column {
 """aggregate var_pop on columns"""
 type Products_var_pop_fields {
   id: Float
+  price: Float
 }
 
 """aggregate var_samp on columns"""
 type Products_var_samp_fields {
   id: Float
+  price: Float
 }
 
 """aggregate variance on columns"""
 type Products_variance_fields {
   id: Float
+  price: Float
 }
 
 type query_root {

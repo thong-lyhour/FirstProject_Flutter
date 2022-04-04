@@ -7,6 +7,10 @@ part of 'serializers.gql.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(GDeleteProductsData.serializer)
+      ..add(GDeleteProductsData_delete_Products_by_pk.serializer)
+      ..add(GDeleteProductsReq.serializer)
+      ..add(GDeleteProductsVars.serializer)
       ..add(GFetchProductsData.serializer)
       ..add(GFetchProductsData_Products.serializer)
       ..add(GFetchProductsReq.serializer)
@@ -33,7 +37,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Gcountries_select_column.serializer)
       ..add(Gcountries_set_input.serializer)
       ..add(Gcountries_update_column.serializer)
+      ..add(GinsertData.serializer)
+      ..add(GinsertData_insert_Products_one.serializer)
+      ..add(GinsertReq.serializer)
+      ..add(GinsertVars.serializer)
       ..add(Gorder_by.serializer)
+      ..add(GupdateProductData.serializer)
+      ..add(GupdateProductData_update_Products_by_pk.serializer)
+      ..add(GupdateProductReq.serializer)
+      ..add(GupdateProductVars.serializer)
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GFetchProductsData_Products)]),

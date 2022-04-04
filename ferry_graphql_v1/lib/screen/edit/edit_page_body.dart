@@ -2,19 +2,20 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:ferry_graphql_v1/components/round_buttom.dart';
 import 'package:ferry_graphql_v1/components/text_form_field.dart';
 import 'package:ferry_graphql_v1/main.dart';
+import 'package:ferry_graphql_v1/screen/home/home_page.dart';
 import 'package:flutter/material.dart';
 import '../../bin/form_value.dart';
 
-class AddPageBody extends StatefulWidget {
-  const AddPageBody({Key? key, required this.onSubmit}) : super(key: key);
+class EditPageBody extends StatefulWidget {
+  const EditPageBody({Key? key, required this.onSubmit}) : super(key: key);
 
   final ValueChanged<FormValue> onSubmit;
 
   @override
-  State<AddPageBody> createState() => _AddPageBodyState();
+  State<EditPageBody> createState() => _EditPageBodyState();
 }
 
-class _AddPageBodyState extends State<AddPageBody> {
+class _EditPageBodyState extends State<EditPageBody> {
   final formKey = GlobalKey<FormState>();
   final values = FormValue();
   @override
@@ -69,15 +70,25 @@ class _AddPageBodyState extends State<AddPageBody> {
               maxLine: 1,
             ),
             RoundButton(
-                text: 'Add Product',
-                press: () {
-                  widget.onSubmit(values);
-                  FocusScope.of(context).unfocus();
-                  formKey.currentState!.reset();
-                },
-                color: Colors.blue,
-                textColor: Colors.white,
-                sideColor: Colors.transparent)
+              text: 'Apply',
+              press: () {
+                widget.onSubmit(values);
+                Navigator.of(context,rootNavigator: true).pop(context);
+                formKey.currentState!.reset();
+              },
+              color: Colors.blue,
+              textColor: Colors.white,
+              sideColor: Colors.transparent,
+            ),
+            RoundButton(
+              text: 'Cancel',
+              press: () {
+                Navigator.of(context, rootNavigator: true).pop(context);
+              },
+              color: Colors.transparent,
+              textColor: Colors.blue,
+              sideColor: Colors.blue,
+            )
           ],
         ),
       ),

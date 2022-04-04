@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: constant_identifier_names
-
 import 'package:gql/ast.dart' as _i1;
 
 const schema = _i1.SchemaDefinitionNode(directives: [], operationTypes: [
@@ -894,11 +892,23 @@ const Products = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'product'),
           directives: [],
@@ -1041,6 +1051,12 @@ const Products_avg_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Float'), isNonNull: false))
     ]);
 const Products_bool_exp = _i1.InputObjectTypeDefinitionNode(
@@ -1072,7 +1088,21 @@ const Products_bool_exp = _i1.InputObjectTypeDefinitionNode(
               isNonNull: false),
           defaultValue: null),
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int_comparison_exp'),
@@ -1109,6 +1139,12 @@ const Products_inc_input = _i1.InputObjectTypeDefinitionNode(
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
           defaultValue: null)
     ]);
 const Products_insert_input = _i1.InputObjectTypeDefinitionNode(
@@ -1116,7 +1152,19 @@ const Products_insert_input = _i1.InputObjectTypeDefinitionNode(
     directives: [],
     fields: [
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false),
@@ -1140,7 +1188,19 @@ const Products_max_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
@@ -1164,7 +1224,19 @@ const Products_min_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
@@ -1234,7 +1306,19 @@ const Products_order_by = _i1.InputObjectTypeDefinitionNode(
     directives: [],
     fields: [
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'order_by'), isNonNull: false),
@@ -1268,7 +1352,11 @@ const Products_select_column = _i1.EnumTypeDefinitionNode(
     directives: [],
     values: [
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'id'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'product'), directives: []),
       _i1.EnumValueDefinitionNode(
@@ -1279,7 +1367,19 @@ const Products_set_input = _i1.InputObjectTypeDefinitionNode(
     directives: [],
     fields: [
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false),
@@ -1307,6 +1407,12 @@ const Products_stddev_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Float'), isNonNull: false))
     ]);
 const Products_stddev_pop_fields = _i1.ObjectTypeDefinitionNode(
@@ -1316,6 +1422,12 @@ const Products_stddev_pop_fields = _i1.ObjectTypeDefinitionNode(
     fields: [
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
@@ -1331,6 +1443,12 @@ const Products_stddev_samp_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Float'), isNonNull: false))
     ]);
 const Products_sum_fields = _i1.ObjectTypeDefinitionNode(
@@ -1343,6 +1461,12 @@ const Products_sum_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false))
     ]);
 const Products_update_column = _i1.EnumTypeDefinitionNode(
@@ -1350,7 +1474,11 @@ const Products_update_column = _i1.EnumTypeDefinitionNode(
     directives: [],
     values: [
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'id'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'price'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'product'), directives: []),
       _i1.EnumValueDefinitionNode(
@@ -1366,6 +1494,12 @@ const Products_var_pop_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Float'), isNonNull: false))
     ]);
 const Products_var_samp_fields = _i1.ObjectTypeDefinitionNode(
@@ -1378,6 +1512,12 @@ const Products_var_samp_fields = _i1.ObjectTypeDefinitionNode(
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Float'), isNonNull: false))
     ]);
 const Products_variance_fields = _i1.ObjectTypeDefinitionNode(
@@ -1387,6 +1527,12 @@ const Products_variance_fields = _i1.ObjectTypeDefinitionNode(
     fields: [
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'price'),
           directives: [],
           args: [],
           type: _i1.NamedTypeNode(

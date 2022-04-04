@@ -1,0 +1,36 @@
+query FetchProducts($limit:Int,$offset:Int){
+  Products(limit:$limit,offset:$offset){
+    id
+    product
+    description
+    product_img
+    price
+  }
+}
+
+mutation DeleteProducts($id:Int!){
+  delete_Products_by_pk(id:$id){
+      id
+      product
+      product_img
+  }
+}
+
+mutation insert($object:Products_insert_input!){
+  insert_Products_one(object: $object){
+    id
+    product
+    description
+    product_img
+    price
+  }
+}
+mutation updateProduct($id:Int!,$name:String,$price:Int!,$product_img:String,$description:String){
+  update_Products_by_pk(pk_columns:{id:$id},_set:{product:$name,product_img:$product_img,price:$price,description:$description}){
+    id
+    product
+    product_img
+    price
+    description
+  }
+}

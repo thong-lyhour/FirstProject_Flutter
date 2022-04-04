@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: constant_identifier_names, camel_case_types, non_constant_identifier_names
-
 part of 'schema.schema.gql.dart';
 
 // **************************************************************************
@@ -135,8 +133,12 @@ final BuiltSet<GProducts_constraint> _$gProductsConstraintValues =
   _$gProductsConstraintProducts_pkey,
 ]);
 
+const GProducts_select_column _$gProductsSelectColumndescription =
+    const GProducts_select_column._('description');
 const GProducts_select_column _$gProductsSelectColumnid =
     const GProducts_select_column._('id');
+const GProducts_select_column _$gProductsSelectColumnprice =
+    const GProducts_select_column._('price');
 const GProducts_select_column _$gProductsSelectColumnproduct =
     const GProducts_select_column._('product');
 const GProducts_select_column _$gProductsSelectColumnproduct_img =
@@ -144,8 +146,12 @@ const GProducts_select_column _$gProductsSelectColumnproduct_img =
 
 GProducts_select_column _$gProductsSelectColumnValueOf(String name) {
   switch (name) {
+    case 'description':
+      return _$gProductsSelectColumndescription;
     case 'id':
       return _$gProductsSelectColumnid;
+    case 'price':
+      return _$gProductsSelectColumnprice;
     case 'product':
       return _$gProductsSelectColumnproduct;
     case 'product_img':
@@ -157,13 +163,19 @@ GProducts_select_column _$gProductsSelectColumnValueOf(String name) {
 
 final BuiltSet<GProducts_select_column> _$gProductsSelectColumnValues =
     new BuiltSet<GProducts_select_column>(const <GProducts_select_column>[
+  _$gProductsSelectColumndescription,
   _$gProductsSelectColumnid,
+  _$gProductsSelectColumnprice,
   _$gProductsSelectColumnproduct,
   _$gProductsSelectColumnproduct_img,
 ]);
 
+const GProducts_update_column _$gProductsUpdateColumndescription =
+    const GProducts_update_column._('description');
 const GProducts_update_column _$gProductsUpdateColumnid =
     const GProducts_update_column._('id');
+const GProducts_update_column _$gProductsUpdateColumnprice =
+    const GProducts_update_column._('price');
 const GProducts_update_column _$gProductsUpdateColumnproduct =
     const GProducts_update_column._('product');
 const GProducts_update_column _$gProductsUpdateColumnproduct_img =
@@ -171,8 +183,12 @@ const GProducts_update_column _$gProductsUpdateColumnproduct_img =
 
 GProducts_update_column _$gProductsUpdateColumnValueOf(String name) {
   switch (name) {
+    case 'description':
+      return _$gProductsUpdateColumndescription;
     case 'id':
       return _$gProductsUpdateColumnid;
+    case 'price':
+      return _$gProductsUpdateColumnprice;
     case 'product':
       return _$gProductsUpdateColumnproduct;
     case 'product_img':
@@ -184,7 +200,9 @@ GProducts_update_column _$gProductsUpdateColumnValueOf(String name) {
 
 final BuiltSet<GProducts_update_column> _$gProductsUpdateColumnValues =
     new BuiltSet<GProducts_update_column>(const <GProducts_update_column>[
+  _$gProductsUpdateColumndescription,
   _$gProductsUpdateColumnid,
+  _$gProductsUpdateColumnprice,
   _$gProductsUpdateColumnproduct,
   _$gProductsUpdateColumnproduct_img,
 ]);
@@ -968,10 +986,24 @@ class _$GProducts_bool_expSerializer
             specifiedType: const FullType(
                 BuiltList, const [const FullType(GProducts_bool_exp)])));
     }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GString_comparison_exp)));
+    }
     value = object.id;
     if (value != null) {
       result
         ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GInt_comparison_exp)));
+    }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(GInt_comparison_exp)));
     }
@@ -1021,8 +1053,18 @@ class _$GProducts_bool_expSerializer
                       BuiltList, const [const FullType(GProducts_bool_exp)]))!
               as BuiltList<Object?>);
           break;
+        case 'description':
+          result.description.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GString_comparison_exp))!
+              as GString_comparison_exp);
+          break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GInt_comparison_exp))!
+              as GInt_comparison_exp);
+          break;
+        case 'price':
+          result.price.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GInt_comparison_exp))!
               as GInt_comparison_exp);
           break;
@@ -1083,6 +1125,12 @@ class _$GProducts_inc_inputSerializer
         ..add('id')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -1100,6 +1148,10 @@ class _$GProducts_inc_inputSerializer
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
       }
@@ -1125,10 +1177,23 @@ class _$GProducts_insert_inputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.id;
     if (value != null) {
       result
         ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.product;
@@ -1160,8 +1225,16 @@ class _$GProducts_insert_inputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'id':
           result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
         case 'product':
@@ -1261,10 +1334,24 @@ class _$GProducts_order_bySerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
     value = object.id;
     if (value != null) {
       result
         ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(Gorder_by)));
     }
@@ -1297,8 +1384,16 @@ class _$GProducts_order_bySerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
         case 'id':
           result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
               specifiedType: const FullType(Gorder_by)) as Gorder_by?;
           break;
         case 'product':
@@ -1396,10 +1491,23 @@ class _$GProducts_set_inputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.id;
     if (value != null) {
       result
         ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.product;
@@ -1431,8 +1539,16 @@ class _$GProducts_set_inputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'id':
           result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
         case 'product':
@@ -2682,7 +2798,11 @@ class _$GProducts_bool_exp extends GProducts_bool_exp {
   @override
   final BuiltList<GProducts_bool_exp>? G_or;
   @override
+  final GString_comparison_exp? description;
+  @override
   final GInt_comparison_exp? id;
+  @override
+  final GInt_comparison_exp? price;
   @override
   final GString_comparison_exp? product;
   @override
@@ -2696,7 +2816,9 @@ class _$GProducts_bool_exp extends GProducts_bool_exp {
       {this.G_and,
       this.G_not,
       this.G_or,
+      this.description,
       this.id,
+      this.price,
       this.product,
       this.product_img})
       : super._();
@@ -2717,7 +2839,9 @@ class _$GProducts_bool_exp extends GProducts_bool_exp {
         G_and == other.G_and &&
         G_not == other.G_not &&
         G_or == other.G_or &&
+        description == other.description &&
         id == other.id &&
+        price == other.price &&
         product == other.product &&
         product_img == other.product_img;
   }
@@ -2726,8 +2850,14 @@ class _$GProducts_bool_exp extends GProducts_bool_exp {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc($jc(0, G_and.hashCode), G_not.hashCode), G_or.hashCode),
-                id.hashCode),
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, G_and.hashCode), G_not.hashCode),
+                            G_or.hashCode),
+                        description.hashCode),
+                    id.hashCode),
+                price.hashCode),
             product.hashCode),
         product_img.hashCode));
   }
@@ -2738,7 +2868,9 @@ class _$GProducts_bool_exp extends GProducts_bool_exp {
           ..add('G_and', G_and)
           ..add('G_not', G_not)
           ..add('G_or', G_or)
+          ..add('description', description)
           ..add('id', id)
+          ..add('price', price)
           ..add('product', product)
           ..add('product_img', product_img))
         .toString();
@@ -2764,10 +2896,21 @@ class GProducts_bool_expBuilder
       _$this._G_or ??= new ListBuilder<GProducts_bool_exp>();
   set G_or(ListBuilder<GProducts_bool_exp>? G_or) => _$this._G_or = G_or;
 
+  GString_comparison_expBuilder? _description;
+  GString_comparison_expBuilder get description =>
+      _$this._description ??= new GString_comparison_expBuilder();
+  set description(GString_comparison_expBuilder? description) =>
+      _$this._description = description;
+
   GInt_comparison_expBuilder? _id;
   GInt_comparison_expBuilder get id =>
       _$this._id ??= new GInt_comparison_expBuilder();
   set id(GInt_comparison_expBuilder? id) => _$this._id = id;
+
+  GInt_comparison_expBuilder? _price;
+  GInt_comparison_expBuilder get price =>
+      _$this._price ??= new GInt_comparison_expBuilder();
+  set price(GInt_comparison_expBuilder? price) => _$this._price = price;
 
   GString_comparison_expBuilder? _product;
   GString_comparison_expBuilder get product =>
@@ -2789,7 +2932,9 @@ class GProducts_bool_expBuilder
       _G_and = $v.G_and?.toBuilder();
       _G_not = $v.G_not?.toBuilder();
       _G_or = $v.G_or?.toBuilder();
+      _description = $v.description?.toBuilder();
       _id = $v.id?.toBuilder();
+      _price = $v.price?.toBuilder();
       _product = $v.product?.toBuilder();
       _product_img = $v.product_img?.toBuilder();
       _$v = null;
@@ -2817,7 +2962,9 @@ class GProducts_bool_expBuilder
               G_and: _G_and?.build(),
               G_not: _G_not?.build(),
               G_or: _G_or?.build(),
+              description: _description?.build(),
               id: _id?.build(),
+              price: _price?.build(),
               product: _product?.build(),
               product_img: _product_img?.build());
     } catch (_) {
@@ -2829,8 +2976,12 @@ class GProducts_bool_expBuilder
         _G_not?.build();
         _$failedField = 'G_or';
         _G_or?.build();
+        _$failedField = 'description';
+        _description?.build();
         _$failedField = 'id';
         _id?.build();
+        _$failedField = 'price';
+        _price?.build();
         _$failedField = 'product';
         _product?.build();
         _$failedField = 'product_img';
@@ -2849,12 +3000,14 @@ class GProducts_bool_expBuilder
 class _$GProducts_inc_input extends GProducts_inc_input {
   @override
   final int? id;
+  @override
+  final int? price;
 
   factory _$GProducts_inc_input(
           [void Function(GProducts_inc_inputBuilder)? updates]) =>
       (new GProducts_inc_inputBuilder()..update(updates)).build();
 
-  _$GProducts_inc_input._({this.id}) : super._();
+  _$GProducts_inc_input._({this.id, this.price}) : super._();
 
   @override
   GProducts_inc_input rebuild(
@@ -2868,17 +3021,21 @@ class _$GProducts_inc_input extends GProducts_inc_input {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GProducts_inc_input && id == other.id;
+    return other is GProducts_inc_input &&
+        id == other.id &&
+        price == other.price;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, id.hashCode));
+    return $jf($jc($jc(0, id.hashCode), price.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GProducts_inc_input')..add('id', id))
+    return (newBuiltValueToStringHelper('GProducts_inc_input')
+          ..add('id', id)
+          ..add('price', price))
         .toString();
   }
 }
@@ -2891,12 +3048,17 @@ class GProducts_inc_inputBuilder
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
 
+  int? _price;
+  int? get price => _$this._price;
+  set price(int? price) => _$this._price = price;
+
   GProducts_inc_inputBuilder();
 
   GProducts_inc_inputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
+      _price = $v.price;
       _$v = null;
     }
     return this;
@@ -2915,7 +3077,7 @@ class GProducts_inc_inputBuilder
 
   @override
   _$GProducts_inc_input build() {
-    final _$result = _$v ?? new _$GProducts_inc_input._(id: id);
+    final _$result = _$v ?? new _$GProducts_inc_input._(id: id, price: price);
     replace(_$result);
     return _$result;
   }
@@ -2923,7 +3085,11 @@ class GProducts_inc_inputBuilder
 
 class _$GProducts_insert_input extends GProducts_insert_input {
   @override
+  final String? description;
+  @override
   final int? id;
+  @override
+  final int? price;
   @override
   final String? product;
   @override
@@ -2933,7 +3099,8 @@ class _$GProducts_insert_input extends GProducts_insert_input {
           [void Function(GProducts_insert_inputBuilder)? updates]) =>
       (new GProducts_insert_inputBuilder()..update(updates)).build();
 
-  _$GProducts_insert_input._({this.id, this.product, this.product_img})
+  _$GProducts_insert_input._(
+      {this.description, this.id, this.price, this.product, this.product_img})
       : super._();
 
   @override
@@ -2949,21 +3116,27 @@ class _$GProducts_insert_input extends GProducts_insert_input {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProducts_insert_input &&
+        description == other.description &&
         id == other.id &&
+        price == other.price &&
         product == other.product &&
         product_img == other.product_img;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, id.hashCode), product.hashCode), product_img.hashCode));
+    return $jf($jc(
+        $jc($jc($jc($jc(0, description.hashCode), id.hashCode), price.hashCode),
+            product.hashCode),
+        product_img.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GProducts_insert_input')
+          ..add('description', description)
           ..add('id', id)
+          ..add('price', price)
           ..add('product', product)
           ..add('product_img', product_img))
         .toString();
@@ -2974,9 +3147,17 @@ class GProducts_insert_inputBuilder
     implements Builder<GProducts_insert_input, GProducts_insert_inputBuilder> {
   _$GProducts_insert_input? _$v;
 
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
   int? _id;
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
+
+  int? _price;
+  int? get price => _$this._price;
+  set price(int? price) => _$this._price = price;
 
   String? _product;
   String? get product => _$this._product;
@@ -2991,7 +3172,9 @@ class GProducts_insert_inputBuilder
   GProducts_insert_inputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _description = $v.description;
       _id = $v.id;
+      _price = $v.price;
       _product = $v.product;
       _product_img = $v.product_img;
       _$v = null;
@@ -3014,7 +3197,11 @@ class GProducts_insert_inputBuilder
   _$GProducts_insert_input build() {
     final _$result = _$v ??
         new _$GProducts_insert_input._(
-            id: id, product: product, product_img: product_img);
+            description: description,
+            id: id,
+            price: price,
+            product: product,
+            product_img: product_img);
     replace(_$result);
     return _$result;
   }
@@ -3149,7 +3336,11 @@ class GProducts_on_conflictBuilder
 
 class _$GProducts_order_by extends GProducts_order_by {
   @override
+  final Gorder_by? description;
+  @override
   final Gorder_by? id;
+  @override
+  final Gorder_by? price;
   @override
   final Gorder_by? product;
   @override
@@ -3159,7 +3350,9 @@ class _$GProducts_order_by extends GProducts_order_by {
           [void Function(GProducts_order_byBuilder)? updates]) =>
       (new GProducts_order_byBuilder()..update(updates)).build();
 
-  _$GProducts_order_by._({this.id, this.product, this.product_img}) : super._();
+  _$GProducts_order_by._(
+      {this.description, this.id, this.price, this.product, this.product_img})
+      : super._();
 
   @override
   GProducts_order_by rebuild(
@@ -3174,21 +3367,27 @@ class _$GProducts_order_by extends GProducts_order_by {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProducts_order_by &&
+        description == other.description &&
         id == other.id &&
+        price == other.price &&
         product == other.product &&
         product_img == other.product_img;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, id.hashCode), product.hashCode), product_img.hashCode));
+    return $jf($jc(
+        $jc($jc($jc($jc(0, description.hashCode), id.hashCode), price.hashCode),
+            product.hashCode),
+        product_img.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GProducts_order_by')
+          ..add('description', description)
           ..add('id', id)
+          ..add('price', price)
           ..add('product', product)
           ..add('product_img', product_img))
         .toString();
@@ -3199,9 +3398,17 @@ class GProducts_order_byBuilder
     implements Builder<GProducts_order_by, GProducts_order_byBuilder> {
   _$GProducts_order_by? _$v;
 
+  Gorder_by? _description;
+  Gorder_by? get description => _$this._description;
+  set description(Gorder_by? description) => _$this._description = description;
+
   Gorder_by? _id;
   Gorder_by? get id => _$this._id;
   set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _price;
+  Gorder_by? get price => _$this._price;
+  set price(Gorder_by? price) => _$this._price = price;
 
   Gorder_by? _product;
   Gorder_by? get product => _$this._product;
@@ -3216,7 +3423,9 @@ class GProducts_order_byBuilder
   GProducts_order_byBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _description = $v.description;
       _id = $v.id;
+      _price = $v.price;
       _product = $v.product;
       _product_img = $v.product_img;
       _$v = null;
@@ -3239,7 +3448,11 @@ class GProducts_order_byBuilder
   _$GProducts_order_by build() {
     final _$result = _$v ??
         new _$GProducts_order_by._(
-            id: id, product: product, product_img: product_img);
+            description: description,
+            id: id,
+            price: price,
+            product: product,
+            product_img: product_img);
     replace(_$result);
     return _$result;
   }
@@ -3330,7 +3543,11 @@ class GProducts_pk_columns_inputBuilder
 
 class _$GProducts_set_input extends GProducts_set_input {
   @override
+  final String? description;
+  @override
   final int? id;
+  @override
+  final int? price;
   @override
   final String? product;
   @override
@@ -3340,7 +3557,8 @@ class _$GProducts_set_input extends GProducts_set_input {
           [void Function(GProducts_set_inputBuilder)? updates]) =>
       (new GProducts_set_inputBuilder()..update(updates)).build();
 
-  _$GProducts_set_input._({this.id, this.product, this.product_img})
+  _$GProducts_set_input._(
+      {this.description, this.id, this.price, this.product, this.product_img})
       : super._();
 
   @override
@@ -3356,21 +3574,27 @@ class _$GProducts_set_input extends GProducts_set_input {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProducts_set_input &&
+        description == other.description &&
         id == other.id &&
+        price == other.price &&
         product == other.product &&
         product_img == other.product_img;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, id.hashCode), product.hashCode), product_img.hashCode));
+    return $jf($jc(
+        $jc($jc($jc($jc(0, description.hashCode), id.hashCode), price.hashCode),
+            product.hashCode),
+        product_img.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GProducts_set_input')
+          ..add('description', description)
           ..add('id', id)
+          ..add('price', price)
           ..add('product', product)
           ..add('product_img', product_img))
         .toString();
@@ -3381,9 +3605,17 @@ class GProducts_set_inputBuilder
     implements Builder<GProducts_set_input, GProducts_set_inputBuilder> {
   _$GProducts_set_input? _$v;
 
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
   int? _id;
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
+
+  int? _price;
+  int? get price => _$this._price;
+  set price(int? price) => _$this._price = price;
 
   String? _product;
   String? get product => _$this._product;
@@ -3398,7 +3630,9 @@ class GProducts_set_inputBuilder
   GProducts_set_inputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _description = $v.description;
       _id = $v.id;
+      _price = $v.price;
       _product = $v.product;
       _product_img = $v.product_img;
       _$v = null;
@@ -3421,7 +3655,11 @@ class GProducts_set_inputBuilder
   _$GProducts_set_input build() {
     final _$result = _$v ??
         new _$GProducts_set_input._(
-            id: id, product: product, product_img: product_img);
+            description: description,
+            id: id,
+            price: price,
+            product: product,
+            product_img: product_img);
     replace(_$result);
     return _$result;
   }
