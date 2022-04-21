@@ -15,7 +15,10 @@ import 'package:loadmore/loadmore.dart';
 class HomePage extends StatefulWidget {
   static int offset = 0;
 
-  final productReq = GFetchProductsReq();
+  GFetchProductsReq productReq = GFetchProductsReq(((b) => b
+    ..requestId = "Req"
+    ..vars.limit = 10
+    ..vars.offset = HomePage.offset));
 
   HomePage({Key? key}) : super(key: key);
 
@@ -27,28 +30,26 @@ class _HomePageState extends State<HomePage> {
   BuiltList<GFetchProductsData_Products>? productList;
   late NavigatorState _navigator;
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return itemOperation();
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
   void _removeProduct(BuildContext context, int productId) {
     final client = GetIt.instance<Client>();
-
+      
     final deleteReq = GDeleteProductsReq(
       (b) => b..vars.id = productId,
     );
     client.request(deleteReq).listen((event) {
       //update cache
-      final cache = client.cache.readQuery(widget.productReq);
+
+      final reReq = widget.productReq.rebuild(
+      (b) => b
+        ..updateResult = (previous, result) =>
+            previous?.rebuild((b) => b..Products.addAll(result!.Products)),
+    );
+      final cache = client.cache.readQuery(reReq);
       final updateProduct = GFetchProductsData((b) {
         return b
           ..Products.addAll(cache!.Products)
@@ -56,12 +57,10 @@ class _HomePageState extends State<HomePage> {
               (product) => product.id == event.data?.delete_Products_by_pk?.id);
       });
       client.cache.writeQuery(widget.productReq, updateProduct);
-      Navigator.of(context).pop(context);
-
-      //client.requestController.add(pReq);
     });
-  }
 
+
+  }
 
   // Query
   Operation<GFetchProductsData, GFetchProductsVars> itemOperation() {
@@ -83,14 +82,20 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Container(
                 margin: const EdgeInsets.all(2.0),
-                child: ListView.builder(
-                  //controller: _scrollController,
-                  scrollDirection: Axis.vertical,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  itemCount: productList!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return productListView(productList!, index, context);
-                  },
+                child: LoadMore(
+                  onLoadMore: _loadMore,
+                  isFinish: productList!.length >= 40,
+                  textBuilder: DefaultLoadMoreTextBuilder.english,
+                  whenEmptyLoad: false,
+                  child: ListView.builder(
+                    //controller: _scrollController,
+                    scrollDirection: Axis.vertical,
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    itemCount: productList!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return productListView(productList!, index, context);
+                    },
+                  ),
                 ),
               ),
             ),
@@ -103,7 +108,7 @@ class _HomePageState extends State<HomePage> {
   Slidable productListView(BuiltList<GFetchProductsData_Products> productList,
       int index, BuildContext context) {
     return Slidable(
-      endActionPane: ActionPane(
+      startActionPane: ActionPane(
         motion: const DrawerMotion(),
         children: [
           SlidableAction(
@@ -118,50 +123,27 @@ class _HomePageState extends State<HomePage> {
             icon: Icons.edit,
             label: 'Edit',
           ),
-          SlidableAction(
-            icon: Icons.delete,
-            label: 'Delete',
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
-            onPressed: (BuildContext context) {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text('Delete "${productList[index].product}"'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => _navigator.pop('Cancel'),
-                        child: const Text("Cancel"),
-                      ),
-                      TextButton(
-                        onPressed: (() {
-                          _removeProduct(context, productList[index].id);
-                        }),
-                        child: const Text(
-                          "Delete",
-                          style: TextStyle(color: Colors.red),
-                        ),
-                      )
-                    ],
-                  );
-                },
-              );
-            },
-          )
         ],
       ),
-      child: CardHomePage(
-        imgPath: productList[index].product_img,
-        name: productList[index].product,
-        subTitle: productList[index].description ?? "",
-        price: productList[index].price ?? 0,
-        onTap: () => _navigator.push(MaterialPageRoute(
-            builder: (context) => DetailPage(
-                id: productList[index].id,
-                title: productList[index].product,
-                imgPath: productList[index].product_img,
-                desc: productList[index].description ?? ""))),
+      child: Dismissible(
+        background: Container(color: Colors.red),
+        direction: DismissDirection.endToStart,
+        key: UniqueKey(),
+        onDismissed: (direction) {
+          _removeProduct(context, productList[index].id);
+        },
+        child: CardHomePage(
+          imgPath: productList[index].product_img,
+          name: productList[index].product,
+          subTitle: productList[index].description ?? "",
+          price: productList[index].price ?? 0,
+          onTap: () => _navigator.push(MaterialPageRoute(
+              builder: (context) => DetailPage(
+                  id: productList[index].id,
+                  title: productList[index].product,
+                  imgPath: productList[index].product_img,
+                  desc: productList[index].description ?? ""))),
+        ),
       ),
     );
   }
@@ -173,20 +155,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   // pagination
-  // fetchMoreProduct(GFetchProductsReq req) async {
-  //   final client = GetIt.instance<Client>();
+  fetchMoreProduct() async {
+    if (HomePage.offset == 40) return;
+    final client = GetIt.instance<Client>();
+    final nextReq = widget.productReq.rebuild(
+      (b) => b
+        ..vars.limit = 10
+        ..vars.offset = (HomePage.offset += 10)
+        ..updateResult = (previous, result) =>
+            previous?.rebuild((b) => b..Products.addAll(result!.Products)),
+    );
 
-  //   HomePage.offset += 10;
-  //   final nextReq = req.rebuild(
-  //     (b) => b
-  //       ..vars.offset = HomePage.offset
-  //       ..updateResult = (previous, result) =>
-  //           previous?.rebuild((b) => b..Products.addAll(result!.Products)),
-  //   );
+    await Future.delayed(const Duration(milliseconds: 500));
+    setState(() {
+      client.requestController.add(nextReq);
+    });
+  }
 
-  //   await Future.delayed(const Duration(milliseconds: 500));
-  //   client.requestController.add(nextReq);
-  // }
+  Future<bool> _loadMore() async {
+    print("onLoadMore");
+    await Future.delayed(Duration(seconds: 0, milliseconds: 2000));
+    fetchMoreProduct();
+    return true;
+  }
 
   @override
   void dispose() {
@@ -194,3 +185,28 @@ class _HomePageState extends State<HomePage> {
     //_scrollController.dispose();
   }
 }
+
+
+// showDialog(
+//                 context: context,
+//                 builder: (context) {
+//                   return AlertDialog(
+//                     title: Text('Delete "${productList[index].product}"'),
+//                     actions: [
+//                       TextButton(
+//                         onPressed: () => _navigator.pop('Cancel'),
+//                         child: const Text("Cancel"),
+//                       ),
+//                       TextButton(
+//                         onPressed: (() {
+//                           _removeProduct(context, productList[index].id);
+//                         }),
+//                         child: const Text(
+//                           "Delete",
+//                           style: TextStyle(color: Colors.red),
+//                         ),
+//                       )
+//                     ],
+//                   );
+//                 },
+//               );
